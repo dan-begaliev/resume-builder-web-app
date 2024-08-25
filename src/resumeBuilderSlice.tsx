@@ -56,9 +56,18 @@ const resumeSlice = createSlice({
         (state[section] as any)[field].value = value;
       }
     },
+    addItem: (
+      state,
+      action: PayloadAction<{
+        section: keyof ResumeData;
+        newItem: Record<string, Field>;
+      }>
+    ) => {
+      state[action.payload.section].push(action.payload.newItem as Experience);
+    },
   },
 });
 
 // Export the action and reducer
-export const { updateField } = resumeSlice.actions;
+export const { updateField, addItem } = resumeSlice.actions;
 export default resumeSlice.reducer;
