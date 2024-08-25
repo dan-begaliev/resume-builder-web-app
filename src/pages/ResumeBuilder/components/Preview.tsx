@@ -1,5 +1,7 @@
+import { Card } from "@/components/ui/card";
+
 export default function Preview() {
   return (
-    <div className="flex h-full items-center justify-center p-6">Preview</div>
+    <Card className="flex h-full items-center justify-center p-6">Preview</Card>
   );
 }

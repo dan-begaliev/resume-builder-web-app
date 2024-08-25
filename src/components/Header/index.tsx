@@ -5,6 +5,7 @@ import { landingNav } from "@/config/headersLinks";
 import { Button } from "../ui/button";
 import { MobileMenu } from "./MobileMenu";
 import { Link } from "react-router-dom";
+import { ModeToggle } from "../theme-toggle";
 
 // import UserNav from "./UserNav";
 
@@ -34,6 +35,8 @@ export function Header() {
         </div>
 
         <div className="ml-auto  flex items-center gap-2 justify-self-end">
+          <ModeToggle />
+
           <div className="items-center gap-2 justify-self-end">
             <Button size={"sm"} variant={"secondary"} asChild>
               <Link to={"/resume-builder"}>Create Resume</Link>

@@ -1,4 +1,11 @@
-import { HomeIcon } from "@radix-ui/react-icons";
+import {
+  BackpackIcon,
+  BookmarkIcon,
+  InfoCircledIcon,
+  MixIcon,
+  PersonIcon,
+  StarIcon,
+} from "@radix-ui/react-icons";
 
 export const resumeBuildrUrl = "/resume-builder";
 
@@ -11,32 +18,32 @@ type SidebarLink = {
 export const builder_urls: SidebarLink[] = [
   {
     title: "Contact",
-    icon: HomeIcon,
+    icon: PersonIcon,
     url: "/contact",
   },
   {
     title: "Summary",
-    icon: HomeIcon,
+    icon: InfoCircledIcon,
     url: "/summary",
   },
   {
     title: "Education",
-    icon: HomeIcon,
+    icon: BackpackIcon,
     url: "/education",
   },
   {
     title: "Skills",
-    icon: HomeIcon,
+    icon: MixIcon,
     url: "/skills",
   },
   {
     title: "Experience",
-    icon: HomeIcon,
+    icon: StarIcon,
     url: "/experience",
   },
   {
     title: "Finalize",
-    icon: HomeIcon,
+    icon: BookmarkIcon,
     url: "/finalize",
   },
 ];
