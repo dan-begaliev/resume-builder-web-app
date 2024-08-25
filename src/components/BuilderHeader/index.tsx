@@ -1,14 +1,9 @@
 import { VercelLogoIcon } from "@radix-ui/react-icons";
 
-import { landingNav } from "@/config/headersLinks";
-
 import { Button } from "../ui/button";
-import { MobileMenu } from "./MobileMenu";
 import { Link } from "react-router-dom";
 
-// import UserNav from "./UserNav";
-
-export function Header() {
+export function BuilderHeader() {
   return (
     <header className="sticky left-0 top-0 z-50 flex w-full flex-col border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 h-[--header-height]">
       <div className="max-w-screen-2xl container flex h-full items-center px-3 md:px-8">
@@ -20,27 +15,15 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm md:flex">
-            {landingNav.map((link, index) => (
-              <Link
-                key={index}
-                to={link.href}
-                className="transition-colors hover:text-foreground/60"
-              >
-                {link.title}
-              </Link>
-            ))}
-          </nav>
+          <nav className="hidden items-center gap-6 text-sm md:flex"></nav>
         </div>
 
         <div className="ml-auto  flex items-center gap-2 justify-self-end">
           <div className="items-center gap-2 justify-self-end">
             <Button size={"sm"} variant={"secondary"} asChild>
-              <Link to={"/resume-builder"}>Create Resume</Link>
+              <Link to={"/resume-builder"}>Sign In</Link>
             </Button>
           </div>
-
-          <MobileMenu />
         </div>
       </div>
     </header>

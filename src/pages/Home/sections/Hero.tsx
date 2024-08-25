@@ -72,7 +72,7 @@ export function Hero() {
       <div className="flex items-center justify-center gap-x-4">
         <Button asChild size={"lg"} className="rounded-[100px] text-md">
           <Link
-            to={"/platform"}
+            to={"/resume-builder"}
             className="font-bold flex items-center gap-x-3"
           >
             <RocketIcon />
