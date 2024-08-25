@@ -1,9 +1,8 @@
-import React from "react";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { updateField, addItem } from "@/resumeBuilderSlice";
-import { Field } from "@/config/builderData";
+import { Field, ResumeData } from "@/config/builderData";
 
 type DynamicGeneratorProps = {
   sectionName: keyof ResumeData; // Adjust to ensure proper typing

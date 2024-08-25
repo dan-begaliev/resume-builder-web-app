@@ -54,7 +54,7 @@ export const educationData: Education[] = [
   },
 ];
 
-type Experience = {
+export type Experience = {
   company: Field;
   position: Field;
   startDate: Field;
@@ -71,3 +71,12 @@ export const experienceData: Experience[] = [
     description: { inputType: "text", value: "", label: "Description" },
   },
 ];
+
+// Define the combined ResumeData type
+export type ResumeData = {
+  contact: typeof contactData;
+  summary: typeof summaryData;
+  skills: typeof skillsData;
+  education: typeof educationData;
+  experience: typeof experienceData;
+};

@@ -1,8 +1,4 @@
-// resumeSlice.ts
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-// Import the types and initial data
 import {
   Field,
   contactData,
@@ -10,16 +6,8 @@ import {
   skillsData,
   educationData,
   experienceData,
+  ResumeData,
 } from "@/config/builderData";
-
-// Define the combined ResumeData type
-export type ResumeData = {
-  contact: typeof contactData;
-  summary: typeof summaryData;
-  skills: typeof skillsData;
-  education: typeof educationData;
-  experience: typeof experienceData;
-};
 
 // Define the initial state
 const initialState: ResumeData = {
@@ -37,6 +25,11 @@ interface UpdateFieldPayload {
   value: string | number;
 }
 
+interface AddItemPayload {
+  section: keyof ResumeData;
+  newItem: Record<string, Field>;
+}
+
 // Create the Redux slice
 const resumeSlice = createSlice({
   name: "resume",
@@ -49,21 +42,25 @@ const resumeSlice = createSlice({
         // Handle array-based sections (skills, education, experience)
         const [indexStr, fieldKey] = field.split("-");
         const index = parseInt(indexStr, 10);
-        const fieldName = fieldKey as keyof (typeof state)[section][0];
-        (state[section][index][fieldName] as Field).value = value;
+
+        // Type assertion to help TypeScript understand that it's an array
+        const sectionArray = state[section] as Array<Record<string, Field>>;
+        const fieldName = fieldKey as keyof (typeof sectionArray)[0];
+        sectionArray[index][fieldName].value = value;
       } else {
         // Handle object-based sections (contact, summary)
-        (state[section] as any)[field].value = value;
+        const sectionObject = state[section] as Record<string, Field>;
+        sectionObject[field].value = value;
       }
     },
-    addItem: (
-      state,
-      action: PayloadAction<{
-        section: keyof ResumeData;
-        newItem: Record<string, Field>;
-      }>
-    ) => {
-      state[action.payload.section].push(action.payload.newItem as Experience);
+    addItem: (state, action: PayloadAction<AddItemPayload>) => {
+      if (Array.isArray(state[action.payload.section])) {
+        // Type assertion to help TypeScript understand that it's an array
+        const sectionArray = state[action.payload.section] as Array<
+          Record<string, Field>
+        >;
+        sectionArray.push(action.payload.newItem);
+      }
     },
   },
 });

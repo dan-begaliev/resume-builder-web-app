@@ -1,9 +1,8 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
+import { useAppSelector } from "@/hooks/reduxHooks";
 import { RootState } from "@/store";
 import DynamicInputGenerator from "@/components/DynamicInputGenerator";
 
 export default function Experience() {
-  const dispatch = useAppDispatch();
   const experience = useAppSelector(
     (state: RootState) => state.resumeBuilder.experience
   );
