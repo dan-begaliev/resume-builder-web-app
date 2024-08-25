@@ -22,11 +22,10 @@ export default function ResumeBuilder() {
       <Header />
       <main
         id="content"
-        className={cn(
-          "flex size-full overflow-scroll !h-[calc(100dvh-var(--header-height))]"
-        )}
+        className={cn("flex size-full !h-[calc(100dvh-var(--header-height))]")}
       >
         <ResizablePanelGroup direction="horizontal">
+          {/* Sidebar Panel */}
           <ResizablePanel
             defaultSize={sidebarLayoutSizes[0]}
             minSize={15}
@@ -39,6 +38,7 @@ export default function ResumeBuilder() {
           >
             <Sidebar isCollapsed={isSidebarCollapsed} />
           </ResizablePanel>
+          {/* Sidebar Panel */}
 
           <ResizableHandle withHandle />
 
@@ -47,13 +47,13 @@ export default function ResumeBuilder() {
               className={cn("relative size-full grow px-3 py-3 ")}
               direction="horizontal"
             >
-              <ResizablePanel defaultSize={editorLayoutSizes[1]}>
+              <ResizablePanel defaultSize={editorLayoutSizes[1]} minSize={20}>
                 <Editor />
               </ResizablePanel>
 
               <ResizeHandleCustom />
 
-              <ResizablePanel defaultSize={editorLayoutSizes[2]}>
+              <ResizablePanel defaultSize={editorLayoutSizes[2]} minSize={15}>
                 <Preview />
               </ResizablePanel>
             </ResizablePanelGroup>
