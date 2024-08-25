@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar";
 import Preview from "./components/Preview";
 import Editor from "./components/Editor";
 import { ResizeHandleCustom } from "@/components/ResizableHandleCustom";
+import BottomBar from "./components/BottomBar";
 export default function ResumeBuilder() {
   const sidebarLayoutSizes = [10, 90];
   const editorLayoutSizes = [50, 50];
@@ -38,11 +39,14 @@ export default function ResumeBuilder() {
           >
             <Sidebar isCollapsed={isSidebarCollapsed} />
           </ResizablePanel>
-          {/* Sidebar Panel */}
 
           <ResizableHandle withHandle />
 
-          <ResizablePanel defaultSize={sidebarLayoutSizes[1]}>
+          {/* Editor & Preview Panels */}
+          <ResizablePanel
+            defaultSize={sidebarLayoutSizes[1]}
+            className="flex flex-col"
+          >
             <ResizablePanelGroup
               className={cn("relative size-full grow px-3 py-3 ")}
               direction="horizontal"
@@ -57,6 +61,7 @@ export default function ResumeBuilder() {
                 <Preview />
               </ResizablePanel>
             </ResizablePanelGroup>
+            <BottomBar />
             <ResizablePanel />
           </ResizablePanel>
         </ResizablePanelGroup>

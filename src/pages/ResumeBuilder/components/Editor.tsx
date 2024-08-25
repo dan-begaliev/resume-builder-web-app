@@ -5,7 +5,7 @@ export default function Editor() {
   const locations = useLocation();
   console.log(locations);
   return (
-    <Card className="flex h-full items-center justify-center p-6">
+    <Card className="flex h-full p-6 items-start">
       <Outlet />
     </Card>
   );

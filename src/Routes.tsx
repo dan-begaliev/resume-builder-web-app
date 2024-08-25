@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
     children: [
       ...builder_urls.map((link) => ({
         path: resumeBuildrUrl + link.url,
-        element: <div>{link.title}</div>,
+        element: <link.element />,
       })),
     ],
   },
