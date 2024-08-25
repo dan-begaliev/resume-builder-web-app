@@ -1,9 +1,3 @@
-import Contact from "@/components/BuilderSteps/Contact";
-import Education from "@/components/BuilderSteps/Education";
-import Experience from "@/components/BuilderSteps/Experience";
-import Finalize from "@/components/BuilderSteps/Finalize";
-import Skills from "@/components/BuilderSteps/Skills";
-import Summary from "@/components/BuilderSteps/Summary";
 import {
   BackpackIcon,
   BookmarkIcon,
@@ -12,14 +6,15 @@ import {
   PersonIcon,
   StarIcon,
 } from "@radix-ui/react-icons";
+import BuilderStepGenerator from "@/components/BuilderStepGenerator";
 
-export const resumeBuildrUrl = "/resume-builder";
+export const resumeBuilderUrl = "/resume-builder";
 
 type SidebarLink = {
   title: string;
   icon: React.ElementType;
   url: string;
-  element: React.ElementType;
+  element: React.ComponentType; // Type for React components
 };
 
 export const builder_urls: SidebarLink[] = [
@@ -27,36 +22,36 @@ export const builder_urls: SidebarLink[] = [
     title: "Contact",
     icon: PersonIcon,
     url: "/contact",
-    element: Contact,
+    element: () => <BuilderStepGenerator sectionName="contact" />, // Using as a React component
   },
   {
     title: "Summary",
     icon: InfoCircledIcon,
     url: "/summary",
-    element: Summary,
+    element: () => <BuilderStepGenerator sectionName="summary" />,
   },
   {
     title: "Education",
     icon: BackpackIcon,
     url: "/education",
-    element: Education,
+    element: () => <BuilderStepGenerator sectionName="education" />,
   },
   {
     title: "Skills",
     icon: MixIcon,
     url: "/skills",
-    element: Skills,
+    element: () => <BuilderStepGenerator sectionName="skills" />,
   },
   {
     title: "Experience",
     icon: StarIcon,
     url: "/experience",
-    element: Experience,
+    element: () => <BuilderStepGenerator sectionName="experience" />,
   },
   {
     title: "Finalize",
     icon: BookmarkIcon,
     url: "/finalize",
-    element: Finalize,
+    element: () => <h1>Finalize</h1>,
   },
 ];

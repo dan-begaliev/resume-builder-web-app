@@ -1,5 +1,5 @@
 import { builder_urls } from "@/config/builderUrls";
-import { resumeBuildrUrl } from "@/config/builderUrls";
+import { resumeBuilderUrl } from "@/config/builderUrls";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const Sidebar = ({ isCollapsed }: SidebarProps) => {
         {builder_urls.map((link, index) => (
           <Link
             key={index}
-            to={resumeBuildrUrl + link.url}
+            to={resumeBuilderUrl + link.url}
             className={cn(
               "flex items-center px-5 py-4 gap-x-3",
               isCollapsed && "justify-center"

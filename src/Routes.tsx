@@ -1,11 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { LandingLayout } from "./components/Layouts/AppLayout";
 import NotFound from "./components/NotFound";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import { resumeBuildrUrl } from "./config/builderUrls";
+
 import ResumeBuilder from "./pages/ResumeBuilder";
-import { builder_urls } from "./config/builderUrls";
+import { builder_urls, resumeBuilderUrl } from "./config/builderUrls";
 
 export const router = createBrowserRouter([
   {
@@ -23,12 +23,16 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: resumeBuildrUrl,
+    path: resumeBuilderUrl,
     element: <ResumeBuilder />,
     children: [
+      {
+        path: "", // Empty path redirects to the contact page
+        element: <Navigate to={resumeBuilderUrl + "/contact"} replace />,
+      },
       ...builder_urls.map((link) => ({
-        path: resumeBuildrUrl + link.url,
-        element: <link.element />,
+        path: resumeBuilderUrl + link.url,
+        element: <link.element />, // Ensure this is treated as a React component
       })),
     ],
   },
