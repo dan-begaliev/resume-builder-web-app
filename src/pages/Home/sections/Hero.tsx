@@ -6,6 +6,7 @@ import { RocketIcon } from "@radix-ui/react-icons";
 import { BorderBeam } from "@/components/magicui/border-beam";
 
 import avatar_img from "@/assets/avatars/avatar-1.avif";
+import { Review } from "@/components/Reviews";
 
 // type HeroProps = {
 //   heading: {
@@ -37,8 +38,8 @@ const avatarList: AvatarProps[] = [
 
 export function Hero() {
   return (
-    <div className="relative overflow-hidden flex flex-col gap-y-8 py-10">
-      <BorderBeam />
+    <div className="relative overflow-hidden gap-y-8 py-10 pb-0 min-h-[calc(100dvh-var(--header-height))] flex flex-col">
+      <BorderBeam className="z-30" />
       <div className="relative z-10 flex flex-col pt-[35px]">
         <div className="flex items-center gap-2 px-4 py-2 justify-center">
           <div className={cn("flex -space-x-3 rtl:space-x-reverse")}>
@@ -89,6 +90,9 @@ export function Hero() {
             Learn More
           </Link>
         </Button>
+      </div>
+      <div>
+        <Review />
       </div>
     </div>
   );

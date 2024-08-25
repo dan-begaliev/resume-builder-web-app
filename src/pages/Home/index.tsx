@@ -1,13 +1,9 @@
-import { BorderBeam } from "@/components/magicui/border-beam";
 import { Hero } from "./sections/Hero";
-import { Review } from "./sections/Reviews";
 
 function Home() {
   return (
-    <div>
+    <div className="">
       <Hero />
-
-      <Review />
     </div>
   );
 }
