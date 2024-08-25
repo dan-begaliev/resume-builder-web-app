@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import contactSlice from "./components/BuilderSteps/Contact/contactSlice";
-import summarySlice from "./components/BuilderSteps/Summary/summarySlice";
+import resumeBuilder from "@/resumeBuilderSlice";
 
 export const store = configureStore({
   reducer: {
-    contacts: contactSlice,
-    summary: summarySlice,
+    resumeBuilder: resumeBuilder,
   },
 });
 

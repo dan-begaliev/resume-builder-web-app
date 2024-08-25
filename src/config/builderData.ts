@@ -1,63 +1,73 @@
-type ContactData = {
-  firstname: string;
-  lastname: string;
+// Defining the types for each data block with inputType and value
+
+export type Field = {
+  inputType: "text" | "textarea" | "select" | "number" | "calendar";
+  value: string | number;
+  label: string;
 };
+
+type ContactData = {
+  firstname: Field;
+  lastname: Field;
+};
+
 export const contactData: ContactData = {
-  firstname: "",
-  lastname: "",
+  firstname: { inputType: "text", value: "", label: "First Name" },
+  lastname: { inputType: "text", value: "", label: "Last Name" },
 };
 
 type SummaryData = {
-  title: string;
-  description: string;
+  title: Field;
+  description: Field;
 };
 
 export const summaryData: SummaryData = {
-  title: "",
-  description: "",
+  title: { inputType: "text", value: "", label: "Title" },
+  description: { inputType: "text", value: "", label: "Description" },
 };
 
 type Skills = {
-  name: string;
-  level: number;
+  name: Field;
+  level: Field;
 };
 
 export const skillsData: Skills[] = [
   {
-    name: "",
-    level: 0,
+    name: { inputType: "text", value: "", label: "Skill" },
+    level: { inputType: "number", value: 0, label: "Level" },
   },
 ];
 
 type Education = {
-  institution: string;
-  degree: string;
-  startDate: string;
-  endDate: string;
+  institution: Field;
+  degree: Field;
+  startDate: Field;
+  endDate: Field;
 };
+
 export const educationData: Education[] = [
   {
-    institution: "",
-    degree: "",
-    startDate: "",
-    endDate: "",
+    institution: { inputType: "text", value: "", label: "Institution" },
+    degree: { inputType: "text", value: "", label: "Degree" },
+    startDate: { inputType: "calendar", value: "", label: "Start Date" },
+    endDate: { inputType: "calendar", value: "", label: "End Date" },
   },
 ];
 
 type Experience = {
-  company: string;
-  position: string;
-  startDate: string;
-  endDate: string;
-  description: string;
+  company: Field;
+  position: Field;
+  startDate: Field;
+  endDate: Field;
+  description: Field;
 };
 
 export const experienceData: Experience[] = [
   {
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    description: "",
+    company: { inputType: "text", value: "", label: "Company" },
+    position: { inputType: "text", value: "", label: "Position" },
+    startDate: { inputType: "calendar", value: "", label: "Start Date" },
+    endDate: { inputType: "calendar", value: "", label: "End Date" },
+    description: { inputType: "text", value: "", label: "Description" },
   },
 ];
