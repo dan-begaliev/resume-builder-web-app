@@ -3,9 +3,9 @@ import { LandingLayout } from "./components/Layouts/AppLayout";
 import NotFound from "./components/NotFound";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import { BuilderLayout } from "./components/Layouts/BuilderLayout";
-
-const resumeBuildrUrl = "/resume-builder";
+import { resumeBuildrUrl } from "./config/builderUrls";
+import ResumeBuilder from "./pages/ResumeBuilder";
+import { builder_urls } from "./config/builderUrls";
 
 export const router = createBrowserRouter([
   {
@@ -24,20 +24,12 @@ export const router = createBrowserRouter([
   },
   {
     path: resumeBuildrUrl,
-    element: <BuilderLayout />,
+    element: <ResumeBuilder />,
     children: [
-      {
-        path: "",
-        element: <h1>Contact Step</h1>,
-      },
-      {
-        path: resumeBuildrUrl + "/education",
-        element: <h1>Education</h1>,
-      },
-      {
-        path: resumeBuildrUrl + "/skills",
-        element: <h1>Skills</h1>,
-      },
+      ...builder_urls.map((link) => ({
+        path: resumeBuildrUrl + link.url,
+        element: <div>{link.title}</div>,
+      })),
     ],
   },
   {
