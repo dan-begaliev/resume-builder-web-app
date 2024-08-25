@@ -2,7 +2,6 @@ import React from "react";
 import { useAppSelector } from "@/hooks/reduxHooks";
 import DynamicInputGenerator from "@/components/DynamicInputGenerator";
 import { ResumeData } from "@/config/builderData";
-import { CardHeader, CardTitle, CardDescription } from "./ui/card";
 import { Separator } from "./ui/separator";
 
 type BuilderStepGenerator = {
