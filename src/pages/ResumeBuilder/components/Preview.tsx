@@ -9,40 +9,53 @@ const ResumePreview: React.FC = () => {
   ) as ResumeData;
 
   return (
-    <Card className="grid grid-cols-2 h-full items-center justify-center p-6 overflow-scroll">
+    <Card className="h-full items-center justify-center p-6 overflow-scroll bg-white">
       {/* Contact Section */}
       <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4">Contact Information</h2>
-        <p>
-          <strong>Name:</strong> {resumeData.contact.firstname.value}{" "}
-          {resumeData.contact.lastname.value}
-        </p>
-        <p>
-          <strong>Email:</strong> {resumeData.contact.email.value}
-        </p>
-        <p>
-          <strong>Phone:</strong> {resumeData.contact.phone.value}
-        </p>
-        <p>
-          <strong>Address:</strong> {resumeData.contact.address.value}
-        </p>
-        <p>
-          <strong>Website:</strong> {resumeData.contact.website.value}
-        </p>
-      </section>
-
-      {/* Summary Section */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4">Summary</h2>
-        <p>
-          <strong>Title:</strong> {resumeData.summary.title.value}
-        </p>
-        <p>
-          <strong>Description:</strong> {resumeData.summary.description.value}
-        </p>
-        <p>
-          <strong>Objective:</strong> {resumeData.summary.objective.value}
-        </p>
+        <div
+          className="shadow-lg h-full p-14 border-t-[20px]  text-center"
+          style={{ borderColor: "#ff6666", color: "#ff6666" }}
+        >
+          <div className="text-xl font-bold">
+            {resumeData.contact.firstname.value}{" "}
+            {resumeData.contact.lastname.value}
+          </div>
+          <div style={{ color: "black" }}>
+            {resumeData.contact.position.value}
+          </div>
+          <div>{resumeData.contact.address.value}</div>
+          <div className="font-normal test-sx flex justify-between">
+            {" "}
+            <p>{resumeData.contact.email.value}</p>
+            <p>{resumeData.contact.website.value}</p>
+            <p>{resumeData.contact.phone.value}</p>
+          </div>
+          <hr
+            className="border-[1.5px] my-2"
+            style={{ borderColor: "#ff6666" }}
+          />
+          {/* Summary Section */}
+          <section className="mb-8 text-xs" style={{ color: "black" }}>
+            {/* <p>
+              <strong>Title:</strong> {resumeData.summary.title.value}
+            </p> */}
+            <div
+              style={{
+                color: "black",
+                wordWrap: "break-word",
+                textAlign:
+                  "justify" /* Justify text for a more even appearance */,
+                lineHeight:
+                  "1.5" /* Adjust line height for better readability */,
+              }}
+            >
+              {resumeData.summary.description.value}
+            </div>
+            {/* <p>
+              <strong>Objective:</strong> {resumeData.summary.objective.value}
+            </p> */}
+          </section>
+        </div>
       </section>
 
       {/* Skills Section */}

@@ -24,11 +24,13 @@ type ContactData = {
   phone: Field;
   address: Field;
   website: Field;
+  position: Field;
 };
 
 export const contactData: ContactData = {
   firstname: { inputType: "text", value: "", label: "First Name" },
   lastname: { inputType: "text", value: "", label: "Last Name" },
+  position: { inputType: "text", value: "", label: "Position" },
   email: { inputType: "email", value: "", label: "Email" },
   phone: { inputType: "phone", value: "", label: "Phone Number" },
   address: { inputType: "textarea", value: "", label: "Address" },
