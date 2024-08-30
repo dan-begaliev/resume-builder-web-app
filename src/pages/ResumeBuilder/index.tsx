@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 import Sidebar from "./components/Sidebar";
-import Preview from "./components/Preview";
+import Preview from "./components/Preview/Preview";
 import Editor from "./components/Editor";
 import { ResizeHandleCustom } from "@/components/ResizableHandleCustom";
 import BottomBar from "./components/BottomBar";
