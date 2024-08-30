@@ -1,14 +1,9 @@
 import React from "react";
-import { ResumeData } from "@/config/builderData";
-import { useAppSelector } from "@/hooks/reduxHooks";
 import { Card } from "@/components/ui/card";
 import Contact from "./components/Contact";
+import Education from "./components/Education";
 
 const ResumePreview: React.FC = () => {
-  const resumeData = useAppSelector(
-    (state) => state.resumeBuilder
-  ) as ResumeData;
-
   return (
     <Card
       className="h-full  p-6 overflow-scroll"
@@ -20,6 +15,7 @@ const ResumePreview: React.FC = () => {
       }}
     >
       <Contact />
+      <Education />
     </Card>
   );
 };

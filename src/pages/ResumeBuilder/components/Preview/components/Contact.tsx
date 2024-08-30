@@ -44,12 +44,15 @@ function Contact() {
   return (
     <div>
       <div
-        className="text-3xl p-10 flex flex-col items-center bg-cyan-800 font-bold"
-        style={{ color: "white" }}
+        className="text-4xl p-10 flex flex-col items-center bg-cyan-800 font-bold"
+        style={{ color: "white", fontFamily: "Libre Baskerville, sans-serif" }}
       >
         Daniiar Begaliev
         {resumeData.contact.firstname.value} {resumeData.contact.lastname.value}
-        <div style={{ color: "black" }} className="text-xl italic mt-2">
+        <div
+          style={{ color: "aquamarine", fontFamily: "cursive" }}
+          className="text-xl font-normal italic mt-2"
+        >
           Frontend Developer{resumeData.contact.position.value}
         </div>
       </div>
@@ -63,7 +66,7 @@ function Contact() {
                 el.value ? (
                   <p
                     key={index}
-                    className="flex flex-row items-center p-3 gap-2"
+                    className="flex flex-row items-center p-3 gap-2 font-normal"
                   >
                     {el.icon} {el.value}
                   </p>

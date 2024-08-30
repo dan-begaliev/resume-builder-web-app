@@ -17,26 +17,6 @@ export type Field = {
   options?: string[]; // For select, radio, and checkbox inputs
 };
 
-type ContactData = {
-  firstname: Field;
-  lastname: Field;
-  email: Field;
-  phone: Field;
-  address: Field;
-  website: Field;
-  position: Field;
-};
-
-export const contactData: ContactData = {
-  firstname: { inputType: "text", value: "", label: "First Name" },
-  lastname: { inputType: "text", value: "", label: "Last Name" },
-  position: { inputType: "text", value: "", label: "Position" },
-  email: { inputType: "email", value: "", label: "Email" },
-  phone: { inputType: "phone", value: "", label: "Phone Number" },
-  address: { inputType: "textarea", value: "", label: "Address" },
-  website: { inputType: "url", value: "", label: "Website" },
-};
-
 type SummaryData = {
   title: Field;
   description: Field;
@@ -63,6 +43,26 @@ export const skillsData: Skills[] = [
   },
 ];
 
+type Contact = {
+  firstname: Field;
+  lastname: Field;
+  email: Field;
+  phone: Field;
+  address: Field;
+  website: Field;
+  position: Field;
+};
+
+export const contactData: Contact = {
+  firstname: { inputType: "text", value: "", label: "First Name" },
+  lastname: { inputType: "text", value: "", label: "Last Name" },
+  position: { inputType: "text", value: "", label: "Position" },
+  email: { inputType: "email", value: "", label: "Email" },
+  phone: { inputType: "phone", value: "", label: "Phone Number" },
+  address: { inputType: "textarea", value: "", label: "Address" },
+  website: { inputType: "url", value: "", label: "Website" },
+};
+
 type Education = {
   institution: Field;
   degree: Field;
@@ -72,16 +72,14 @@ type Education = {
   honors: Field;
 };
 
-export const educationData: Education[] = [
-  {
-    institution: { inputType: "text", value: "", label: "Institution" },
-    degree: { inputType: "text", value: "", label: "Degree" },
-    startDate: { inputType: "calendar", value: "", label: "Start Date" },
-    endDate: { inputType: "calendar", value: "", label: "End Date" },
-    gpa: { inputType: "number", value: "", label: "GPA" },
-    honors: { inputType: "textarea", value: "", label: "Honors & Awards" },
-  },
-];
+export const educationData: Education = {
+  institution: { inputType: "text", value: "", label: "Institution" },
+  degree: { inputType: "text", value: "", label: "Degree" },
+  startDate: { inputType: "calendar", value: "", label: "Start Date" },
+  endDate: { inputType: "calendar", value: "", label: "End Date" },
+  gpa: { inputType: "number", value: "", label: "GPA" },
+  honors: { inputType: "textarea", value: "", label: "Honors & Awards" },
+};
 
 export type Experience = {
   company: Field;
