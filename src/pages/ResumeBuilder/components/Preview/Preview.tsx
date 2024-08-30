@@ -2,6 +2,7 @@ import React from "react";
 import { ResumeData } from "@/config/builderData";
 import { useAppSelector } from "@/hooks/reduxHooks";
 import { Card } from "@/components/ui/card";
+import Contact from "./components/Contact";
 
 const ResumePreview: React.FC = () => {
   const resumeData = useAppSelector(
@@ -18,45 +19,13 @@ const ResumePreview: React.FC = () => {
         height: "297mm",
       }}
     >
-      <div
-        className="text-3xl p-10 flex justify-center bg-cyan-800 font-bold"
-        style={{ color: "white" }}
-      >
-        {resumeData.contact.firstname.value} {resumeData.contact.lastname.value}
-      </div>
-      <div className="divide flex flex-row">
-        <div className="w-1/3 h-dvh flex bg-[#EEE7E1]">Skills</div>
-        <div className="w-2/3 h-dvh">
-          <section title="contact-details"></section>
-          <section title="skills"></section>
-        </div>
-      </div>
+      <Contact />
     </Card>
   );
 };
 
 export default ResumePreview;
 
-// {
-//   /* Contact Section */
-// }
-// <section className="mb-8">
-//   <div
-//     className="shadow-lg h-full p-14 border-t-[20px]  text-center"
-//     style={{ borderColor: "#ff6666", color: "#ff6666" }}
-//   >
-//     <div className="text-xl font-bold">
-//       {resumeData.contact.firstname.value} {resumeData.contact.lastname.value}
-//     </div>
-//     <div style={{ color: "black" }}>{resumeData.contact.position.value}</div>
-//     <div>{resumeData.contact.address.value}</div>
-//     <div className="font-normal test-sx flex justify-between">
-//       {" "}
-//       <p>{resumeData.contact.email.value}</p>
-//       <p>{resumeData.contact.website.value}</p>
-//       <p>{resumeData.contact.phone.value}</p>
-//     </div>
-//     <hr className="border-[1.5px] my-2" style={{ borderColor: "#ff6666" }} />
 //     {/* Summary Section */}
 //     <section className="mb-8 text-xs" style={{ color: "black" }}>
 //       {/* <p>
