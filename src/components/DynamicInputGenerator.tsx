@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { updateField, addItem } from "@/resumeBuilderSlice";
+import { updateField, addItem, deleteItem } from "@/resumeBuilderSlice";
 import { Field, ResumeData } from "@/config/builderData";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog";
+import { TrashIcon } from "@radix-ui/react-icons";
 
 type DynamicGeneratorProps = {
   sectionName: keyof ResumeData;
@@ -29,23 +30,36 @@ export default function DynamicGenerator({
           value: "", // Reset the value for the new item
         };
       });
+    } else {
+      // Define a default structure for a new item when sectionData is empty
+      const defaultStructure: Record<string, Field> = {
+        name: { label: "Name", value: "", inputType: "text" },
+        // Add other default fields as needed
+      };
 
-      dispatch(
-        addItem({
-          section: sectionName,
-          newItem,
-        })
-      );
+      Object.keys(defaultStructure).forEach((key) => {
+        newItem[key] = {
+          ...defaultStructure[key],
+          value: "", // Reset the value for the new item
+        };
+      });
     }
+
+    dispatch(
+      addItem({
+        section: sectionName,
+        newItem,
+      })
+    );
   };
 
   const handleDeleteItem = (index: number) => {
-    // Dispatch an action to delete the item
-    // Assuming you have a deleteItem action in your slice
-    dispatch({
-      type: `${sectionName}/deleteItem`,
-      payload: index,
-    });
+    dispatch(
+      deleteItem({
+        section: sectionName,
+        index,
+      })
+    );
   };
 
   const openEditDialog = (index: number) => {
@@ -56,49 +70,48 @@ export default function DynamicGenerator({
     setEditIndex(null);
   };
 
-  const handleFieldChange = (fieldKey: string, value: string | number) => {
-    if (editIndex !== null) {
-      dispatch(
-        updateField({
-          section: sectionName,
-          field: `${editIndex}-${fieldKey}`,
-          value,
-        })
-      );
-    }
+  const handleFieldChange = (index: number, value: string) => {
+    dispatch(
+      updateField({
+        section: sectionName,
+        field: `${index}-name`, // Format field key as 'index-name'
+        value,
+      })
+    );
   };
 
-  if (Array.isArray(sectionData)) {
+  if (Array.isArray(sectionData) && sectionName === "skills") {
     return (
       <div className="flex flex-col">
         {sectionData.map((item, index) => (
           <div key={index} className="card mb-6 p-4 border rounded">
             <div className="flex justify-between items-center">
-              <h3>{`Item ${index + 1}`}</h3>
               <div>
-                <Button onClick={() => openEditDialog(index)} className="mr-2">
-                  Edit
-                </Button>
+                <h3>{`Skill:  ${index + 1}`}</h3>
+                <Input
+                  value={item.name.value as string}
+                  onChange={(e) => handleFieldChange(index, e.target.value)}
+                  type={"text"}
+                  className="w-full"
+                />
+              </div>
+              <div>
                 <Button
                   onClick={() => handleDeleteItem(index)}
                   variant="destructive"
+                  size={"sm"}
                 >
-                  Delete
+                  <TrashIcon />
                 </Button>
               </div>
             </div>
-            {Object.entries(item).map(([key, field]) => (
-              <div key={key} className="mt-2">
-                <Label htmlFor={`${key}-${index}`}>{field.label}</Label>
-                <p>{field.value}</p>
-              </div>
-            ))}
           </div>
         ))}
+
         <Button onClick={handleAddItem} className="btn btn-primary mt-4">
           Add {sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}
         </Button>
-
+        {/* 
         {editIndex !== null && (
           <Dialog open={editIndex !== null} onOpenChange={closeEditDialog}>
             <DialogContent>
@@ -118,7 +131,7 @@ export default function DynamicGenerator({
               <Button onClick={closeEditDialog}>Close</Button>
             </DialogContent>
           </Dialog>
-        )}
+        )} */}
       </div>
     );
   } else {

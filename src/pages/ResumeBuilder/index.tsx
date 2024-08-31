@@ -57,7 +57,7 @@ export default function ResumeBuilder() {
 
               <ResizeHandleCustom />
 
-              <ResizablePanel defaultSize={editorLayoutSizes[2]} minSize={15}>
+              <ResizablePanel defaultSize={editorLayoutSizes[2]} minSize={20}>
                 <Preview />
               </ResizablePanel>
             </ResizablePanelGroup>

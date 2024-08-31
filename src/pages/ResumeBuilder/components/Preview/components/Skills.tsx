@@ -11,7 +11,7 @@ function Skills() {
       {resumeData.skills.map((skill, index) => (
         <div key={index} className="px-4 ">
           <p className="flex flex-col mb-2 items-start font-normal">
-            {skill.name.value}JavaScript
+            {skill.name.value}
           </p>
         </div>
       ))}

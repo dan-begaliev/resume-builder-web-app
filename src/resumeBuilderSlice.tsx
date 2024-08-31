@@ -62,9 +62,18 @@ const resumeSlice = createSlice({
         sectionArray.push(action.payload.newItem);
       }
     },
+    deleteItem(
+      state,
+      action: PayloadAction<{ section: keyof ResumeData; index: number }>
+    ) {
+      const { section, index } = action.payload;
+      if (section === "skills") {
+        state.skills.splice(index, 1);
+      }
+    },
   },
 });
 
 // Export the action and reducer
-export const { updateField, addItem } = resumeSlice.actions;
+export const { updateField, addItem, deleteItem } = resumeSlice.actions;
 export default resumeSlice.reducer;

@@ -35,7 +35,7 @@ type Skills = {
 
 export const skillsData: Skills[] = [
   {
-    name: { inputType: "text", value: "", label: "Skill" },
+    name: { inputType: "text", value: "HTML", label: "Skill" },
   },
 ];
 
