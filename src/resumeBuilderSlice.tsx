@@ -62,13 +62,13 @@ const resumeSlice = createSlice({
         sectionArray.push(action.payload.newItem);
       }
     },
-    deleteItem(
+    deleteItem: (
       state,
       action: PayloadAction<{ section: keyof ResumeData; index: number }>
-    ) {
+    ) => {
       const { section, index } = action.payload;
-      if (section === "skills") {
-        state.skills.splice(index, 1);
+      if (Array.isArray(state[section])) {
+        state[section].splice(index, 1);
       }
     },
   },
