@@ -7,30 +7,17 @@ function Education() {
   ) as ResumeData;
 
   return (
-    <section className="mb-8" style={{ color: "black" }}>
-      <h2 className="text-xl font-bold mb-4">Education</h2>
+    <div className="flex flex-col items-start p-3 gap-2 font-normal">
+      <p>{resumeData.education.institution.value}</p>
+      <p>{resumeData.education.degree.value}</p>
+      <p>
+        {resumeData.education.startDate.value}-
+        {resumeData.education.endDate.value}
+      </p>
 
-      <div className="mb-2">
-        <p>
-          <strong>Institution:</strong> {resumeData.education.institution.value}
-        </p>
-        <p>
-          <strong>Degree:</strong> {resumeData.education.degree.value}
-        </p>
-        <p>
-          <strong>Start Date:</strong> {resumeData.education.startDate.value}
-        </p>
-        <p>
-          <strong>End Date:</strong> {resumeData.education.endDate.value}
-        </p>
-        <p>
-          <strong>GPA:</strong> {resumeData.education.gpa.value}
-        </p>
-        <p>
-          <strong>Honors:</strong> {resumeData.education.honors.value}
-        </p>
-      </div>
-    </section>
+      <p>{resumeData.education.gpa.value}</p>
+      <p>{resumeData.education.honors.value}</p>
+    </div>
   );
 }
 

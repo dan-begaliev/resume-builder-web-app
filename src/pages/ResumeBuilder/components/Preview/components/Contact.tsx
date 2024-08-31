@@ -17,7 +17,6 @@ function Contact() {
   const resumeData = useAppSelector(
     (state) => state.resumeBuilder
   ) as ResumeData;
-
   const contactDetails: ContactDetail[] = [
     {
       icon: <MobileIcon />,
@@ -43,43 +42,13 @@ function Contact() {
 
   return (
     <div>
-      <div
-        className="text-4xl p-10 flex flex-col items-center bg-cyan-800 font-bold"
-        style={{ color: "white", fontFamily: "Libre Baskerville, sans-serif" }}
-      >
-        Daniiar Begaliev
-        {resumeData.contact.firstname.value} {resumeData.contact.lastname.value}
-        <div
-          style={{ color: "aquamarine", fontFamily: "cursive" }}
-          className="text-xl font-normal italic mt-2"
-        >
-          Frontend Developer{resumeData.contact.position.value}
-        </div>
-      </div>
-
-      <div className="divide flex flex-row">
-        <div className="w-1/3 h-dvh flex flex-col items-center bg-[#EEE7E1] p-7">
-          <div className="">
-            <div className="text-l font-bold">
-              <p className="mb-2">CONTACT</p>
-              {contactDetails.map((el, index) =>
-                el.value ? (
-                  <p
-                    key={index}
-                    className="flex flex-row items-center p-3 gap-2 font-normal"
-                  >
-                    {el.icon} {el.value}
-                  </p>
-                ) : null
-              )}
-            </div>
-          </div>
-        </div>
-        <div className="w-2/3 h-dvh">
-          <section title="contact-details"></section>
-          <section title="skills"></section>
-        </div>
-      </div>
+      {contactDetails.map((el, index) =>
+        el.value ? (
+          <p key={index} className="flex items-center p-1 gap-2 font-normal">
+            {el.icon} {el.value}
+          </p>
+        ) : null
+      )}
     </div>
   );
 }

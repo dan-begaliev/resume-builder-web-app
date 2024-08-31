@@ -2,8 +2,15 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import Contact from "./components/Contact";
 import Education from "./components/Education";
-
+import { ResumeData } from "@/config/builderData";
+import { useAppSelector } from "@/hooks/reduxHooks";
+import Skills from "./components/Skills";
+import Summary from "./components/Summary";
+import Experience from "./components/Experience";
 const ResumePreview: React.FC = () => {
+  const resumeData = useAppSelector(
+    (state) => state.resumeBuilder
+  ) as ResumeData;
   return (
     <Card
       className="h-full  p-6 overflow-scroll"
@@ -14,113 +21,40 @@ const ResumePreview: React.FC = () => {
         height: "297mm",
       }}
     >
-      <Contact />
-      <Education />
+      <div
+        className="text-4xl p-10 flex flex-col items-center bg-cyan-800 font-bold"
+        style={{ color: "white", fontFamily: "Libre Baskerville, sans-serif" }}
+      >
+        {resumeData.contact.firstname.value} {resumeData.contact.lastname.value}
+        <div
+          style={{ color: "aquamarine", fontFamily: "cursive" }}
+          className="text-2xl font-normal italic mt-3"
+        >
+          {resumeData.contact.position.value}
+        </div>
+      </div>
+      <div className="divide flex flex-row">
+        <div className="w-1/3 h-dvh flex flex-col items-center bg-[#EEE7E1] p-7">
+          <div className="">
+            <div className="text-l font-bold">
+              <p className="my-3">CONTACT</p>
+              <Contact />
+              <p className="mt-6">EDUCATION</p>
+              <Education />
+              <p className="mt-6 mb-3">SKILLS</p>
+              <Skills />
+            </div>
+          </div>
+        </div>
+        <div className="w-2/3 h-dvh p-4">
+          <p className="mt-6 text-l font-bold">SUMMARY</p>
+          <Summary />
+          <p className="mt-6 mb-3  text-l font-bold">EXPERIENCE</p>
+          <Experience />
+        </div>
+      </div>
     </Card>
   );
 };
 
 export default ResumePreview;
-
-//     {/* Summary Section */}
-//     <section className="mb-8 text-xs" style={{ color: "black" }}>
-//       {/* <p>
-//        <strong>Title:</strong> {resumeData.summary.title.value}
-//      </p> */}
-//       <div
-//         style={{
-//           color: "black",
-//           wordWrap: "break-word",
-//           textAlign: "justify" /* Justify text for a more even appearance */,
-//           lineHeight: "1.5" /* Adjust line height for better readability */,
-//         }}
-//       >
-//         {resumeData.summary.description.value}
-//       </div>
-//       {/* <p>
-//        <strong>Objective:</strong> {resumeData.summary.objective.value}
-//      </p> */}
-//     </section>
-//   </div>
-// </section>;
-
-// {
-//   /* Skills Section */
-// }
-// <section className="mb-8">
-//   <h2 className="text-xl font-bold mb-4">Skills</h2>
-//   {resumeData.skills.map((skill, index) => (
-//     <div key={index} className="mb-2">
-//       <p>
-//         <strong>Skill:</strong> {skill.name.value}
-//       </p>
-//       <p>
-//         <strong>Level:</strong> {skill.level.value}
-//       </p>
-//       <p>
-//         <strong>Certification:</strong> {skill.certification.value}
-//       </p>
-//     </div>
-//   ))}
-// </section>;
-
-// {
-//   /* Education Section */
-// }
-// <section className="mb-8">
-//   <h2 className="text-xl font-bold mb-4">Education</h2>
-//   {resumeData.education.map((edu, index) => (
-//     <div key={index} className="mb-2">
-//       <p>
-//         <strong>Institution:</strong> {edu.institution.value}
-//       </p>
-//       <p>
-//         <strong>Degree:</strong> {edu.degree.value}
-//       </p>
-//       <p>
-//         <strong>Start Date:</strong> {edu.startDate.value}
-//       </p>
-//       <p>
-//         <strong>End Date:</strong> {edu.endDate.value}
-//       </p>
-//       <p>
-//         <strong>GPA:</strong> {edu.gpa.value}
-//       </p>
-//       <p>
-//         <strong>Honors:</strong> {edu.honors.value}
-//       </p>
-//     </div>
-//   ))}
-// </section>;
-
-// {
-//   /* Experience Section */
-// }
-// <section>
-//   <h2 className="text-xl font-bold mb-4">Experience</h2>
-//   {resumeData.experience.map((exp, index) => (
-//     <div key={index} className="mb-2">
-//       <p>
-//         <strong>Company:</strong> {exp.company.value}
-//       </p>
-//       <p>
-//         <strong>Position:</strong> {exp.position.value}
-//       </p>
-//       <p>
-//         <strong>Start Date:</strong> {exp.startDate.value}
-//       </p>
-//       <p>
-//         <strong>End Date:</strong> {exp.endDate.value}
-//       </p>
-//       <p>
-//         <strong>Description:</strong> {exp.description.value}
-//       </p>
-//       <p>
-//         <strong>Responsibilities:</strong> {exp.responsibilities.value}
-//       </p>
-//       <p>
-//         <strong>Achievements:</strong> {exp.achievements.value}
-//       </p>
-//     </div>
-//   ))}
-// </section>;

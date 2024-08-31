@@ -31,15 +31,11 @@ export const summaryData: SummaryData = {
 
 type Skills = {
   name: Field;
-  level: Field;
-  certification: Field;
 };
 
 export const skillsData: Skills[] = [
   {
     name: { inputType: "text", value: "", label: "Skill" },
-    level: { inputType: "number", value: 0, label: "Level" },
-    certification: { inputType: "text", value: "", label: "Certification" },
   },
 ];
 
@@ -54,13 +50,17 @@ type Contact = {
 };
 
 export const contactData: Contact = {
-  firstname: { inputType: "text", value: "", label: "First Name" },
-  lastname: { inputType: "text", value: "", label: "Last Name" },
-  position: { inputType: "text", value: "", label: "Position" },
-  email: { inputType: "email", value: "", label: "Email" },
-  phone: { inputType: "phone", value: "", label: "Phone Number" },
-  address: { inputType: "textarea", value: "", label: "Address" },
-  website: { inputType: "url", value: "", label: "Website" },
+  firstname: { inputType: "text", value: "JOHN", label: "First Name" },
+  lastname: { inputType: "text", value: "DOE", label: "Last Name" },
+  position: {
+    inputType: "text",
+    value: "Frontend Developer",
+    label: "Position",
+  },
+  email: { inputType: "email", value: "johndoe@gmail.com", label: "Email" },
+  phone: { inputType: "phone", value: "2064461128", label: "Phone Number" },
+  address: { inputType: "textarea", value: "San Francisco", label: "Address" },
+  website: { inputType: "url", value: "Linkedin", label: "Website" },
 };
 
 type Education = {
@@ -73,12 +73,24 @@ type Education = {
 };
 
 export const educationData: Education = {
-  institution: { inputType: "text", value: "", label: "Institution" },
-  degree: { inputType: "text", value: "", label: "Degree" },
-  startDate: { inputType: "calendar", value: "", label: "Start Date" },
-  endDate: { inputType: "calendar", value: "", label: "End Date" },
-  gpa: { inputType: "number", value: "", label: "GPA" },
-  honors: { inputType: "textarea", value: "", label: "Honors & Awards" },
+  institution: {
+    inputType: "text",
+    value: "Stanford University",
+    label: "Institution",
+  },
+  degree: { inputType: "text", value: "Bachelor's Degree", label: "Degree" },
+  startDate: {
+    inputType: "calendar",
+    value: "03/2020",
+    label: "Start Date",
+  },
+  endDate: { inputType: "calendar", value: "07/2024", label: "End Date" },
+  gpa: { inputType: "number", value: "GPA: 3.8", label: "GPA" },
+  honors: {
+    inputType: "textarea",
+    value: "Dean's List",
+    label: "Honors & Awards",
+  },
 };
 
 export type Experience = {
@@ -88,13 +100,14 @@ export type Experience = {
   endDate: Field;
   description: Field;
   responsibilities: Field;
-  achievements: Field;
+  city: Field;
 };
 
 export const experienceData: Experience[] = [
   {
     company: { inputType: "text", value: "", label: "Company" },
     position: { inputType: "text", value: "", label: "Position" },
+    city: { inputType: "textarea", value: "", label: "City" },
     startDate: { inputType: "calendar", value: "", label: "Start Date" },
     endDate: { inputType: "calendar", value: "", label: "End Date" },
     description: { inputType: "textarea", value: "", label: "Description" },
@@ -103,7 +116,6 @@ export const experienceData: Experience[] = [
       value: "",
       label: "Responsibilities",
     },
-    achievements: { inputType: "textarea", value: "", label: "Achievements" },
   },
 ];
 
