@@ -134,6 +134,59 @@ export default function DynamicGenerator({
         )} */}
       </div>
     );
+  } else if (Array.isArray(sectionData) && sectionName === "experience") {
+    return (
+      <div className="flex flex-col">
+        {sectionData.map((item, index) => (
+          <div key={index} className="card mb-6 p-4 border rounded">
+            <div className="flex justify-between items-center">
+              <h3>{`Item ${index + 1}`}</h3>
+              <div>
+                <Button onClick={() => openEditDialog(index)} className="mr-2">
+                  Edit
+                </Button>
+                <Button
+                  onClick={() => handleDeleteItem(index)}
+                  variant="destructive"
+                >
+                  Delete
+                </Button>
+              </div>
+            </div>
+            {Object.entries(item).map(([key, field]) => (
+              <div key={key} className="mt-2">
+                <Label htmlFor={`${key}-${index}`}>{field.label}</Label>
+                <p>{field.value}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+        <Button onClick={handleAddItem} className="btn btn-primary mt-4">
+          Add {sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}
+        </Button>
+
+        {editIndex !== null && (
+          <Dialog open={editIndex !== null} onOpenChange={closeEditDialog}>
+            <DialogContent>
+              <DialogTitle>Edit Item</DialogTitle>
+              {Object.entries(sectionData[editIndex]).map(([key, field]) => (
+                <div key={key} className="grid gap-3 mb-4">
+                  <Label htmlFor={`${key}-${editIndex}`}>{field.label}</Label>
+                  <Input
+                    value={field.value as string}
+                    onChange={(e) => handleFieldChange(key, e.target.value)}
+                    id={`${key}-${editIndex}`}
+                    type={field.inputType}
+                    className="w-full"
+                  />
+                </div>
+              ))}
+              <Button onClick={closeEditDialog}>Close</Button>
+            </DialogContent>
+          </Dialog>
+        )}
+      </div>
+    );
   } else {
     return (
       <div className="grid grid-cols-2 gap-6 w-full">
