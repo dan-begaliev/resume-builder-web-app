@@ -18,15 +18,11 @@ export type Field = {
 };
 
 type SummaryData = {
-  title: Field;
   description: Field;
-  objective: Field;
 };
 
 export const summaryData: SummaryData = {
-  title: { inputType: "text", value: "", label: "Title" },
   description: { inputType: "textarea", value: "", label: "Description" },
-  objective: { inputType: "textarea", value: "", label: "Objective" },
 };
 
 type Skills = {

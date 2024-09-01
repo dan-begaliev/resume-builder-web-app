@@ -15,10 +15,7 @@ function Summary() {
           lineHeight: "1",
         }}
       >
-        {resumeData.summary.description.value} Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Blanditiis corporis optio dolorem maxime
-        aliquid obcaecati saepe, voluptate ipsum nemo, cupiditate omnis porro
-        ipsam nihil adipisci eius cumque pariatur dolore est.
+        {resumeData.summary.description.value}
       </div>
     </section>
   );
