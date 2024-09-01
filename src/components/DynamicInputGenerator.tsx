@@ -31,30 +31,48 @@ export default function DynamicGenerator({
         };
       });
     } else {
-      // Define a default structure for a new item when sectionData is empty
-      const defaultStructure: Record<string, Field> = {
-        name: { label: "Name", value: "", inputType: "text" },
-        company: { inputType: "text", value: "", label: "Company" },
-        position: { inputType: "text", value: "", label: "Position" },
-        city: { inputType: "textarea", value: "", label: "City" },
-        startDate: { inputType: "calendar", value: "", label: "Start Date" },
-        endDate: { inputType: "calendar", value: "", label: "End Date" },
-        description: { inputType: "textarea", value: "", label: "Description" },
-        responsibilities: {
-          inputType: "textarea",
-          value: "",
-          label: "Responsibilities",
-        },
-
-        // Add other default fields as needed
-      };
-
-      Object.keys(defaultStructure).forEach((key) => {
-        newItem[key] = {
-          ...defaultStructure[key],
-          value: "", // Reset the value for the new item
+      if (sectionName === "skills") {
+        const defaultStructure: Record<string, Field> = {
+          name: { label: "Name", value: "", inputType: "text" },
         };
-      });
+
+        Object.keys(defaultStructure).forEach((key) => {
+          newItem[key] = {
+            ...defaultStructure[key],
+            value: "", // Reset the value for the new item
+          };
+        });
+      }
+      if (sectionName === "experience") {
+        const defaultStructure: Record<string, Field> = {
+          name: { label: "Name", value: "", inputType: "text" },
+          company: { inputType: "text", value: "", label: "Company" },
+          position: { inputType: "text", value: "", label: "Position" },
+          city: { inputType: "textarea", value: "", label: "City" },
+          startDate: { inputType: "calendar", value: "", label: "Start Date" },
+          endDate: { inputType: "calendar", value: "", label: "End Date" },
+          description: {
+            inputType: "textarea",
+            value: "",
+            label: "Description",
+          },
+          responsibilities: {
+            inputType: "textarea",
+            value: "",
+            label: "Responsibilities",
+          },
+
+          // Add other default fields as needed
+        };
+
+        Object.keys(defaultStructure).forEach((key) => {
+          newItem[key] = {
+            ...defaultStructure[key],
+            value: "", // Reset the value for the new item
+          };
+        });
+      }
+      // Define a default structure for a new item when sectionData is empty
     }
 
     dispatch(
