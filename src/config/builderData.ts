@@ -18,11 +18,17 @@ export type Field = {
 };
 
 type SummaryData = {
-  description: Field;
+  email: Field;
+  phone: Field;
+  address: Field;
+  website: Field;
 };
 
 export const summaryData: SummaryData = {
-  description: { inputType: "textarea", value: "", label: "Description" },
+  email: { inputType: "email", value: "johndoe@gmail.com", label: "Email" },
+  phone: { inputType: "phone", value: "2064461128", label: "Phone Number" },
+  address: { inputType: "textarea", value: "San Francisco", label: "Address" },
+  website: { inputType: "url", value: "Linkedin", label: "Website" },
 };
 
 type Skills = {
@@ -38,11 +44,8 @@ export const skillsData: Skills[] = [
 type Contact = {
   firstname: Field;
   lastname: Field;
-  email: Field;
-  phone: Field;
-  address: Field;
-  website: Field;
   position: Field;
+  description: Field;
 };
 
 export const contactData: Contact = {
@@ -53,10 +56,7 @@ export const contactData: Contact = {
     value: "Frontend Developer",
     label: "Position",
   },
-  email: { inputType: "email", value: "johndoe@gmail.com", label: "Email" },
-  phone: { inputType: "phone", value: "2064461128", label: "Phone Number" },
-  address: { inputType: "textarea", value: "San Francisco", label: "Address" },
-  website: { inputType: "url", value: "Linkedin", label: "Website" },
+  description: { inputType: "textarea", value: "", label: "Description" },
 };
 
 type Education = {

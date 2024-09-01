@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { updateField, addItem, deleteItem } from "@/resumeBuilderSlice";
 import { Field, ResumeData } from "@/config/builderData";
 import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogTitle } from "./ui/dialog";
 import { TrashIcon } from "@radix-ui/react-icons";
 
 type DynamicGeneratorProps = {
