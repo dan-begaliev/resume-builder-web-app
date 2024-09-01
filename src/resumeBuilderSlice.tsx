@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   Field,
   contactData,
-  summaryData,
+  headerData,
   skillsData,
   educationData,
   experienceData,
@@ -12,7 +12,7 @@ import {
 // Define the initial state
 const initialState: ResumeData = {
   contact: contactData,
-  summary: summaryData,
+  header: headerData,
   skills: skillsData,
   education: educationData,
   experience: experienceData,

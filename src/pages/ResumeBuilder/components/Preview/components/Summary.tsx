@@ -15,7 +15,7 @@ function Summary() {
           lineHeight: "1",
         }}
       >
-        {resumeData.contact.description.value}
+        {resumeData.header.description.value}
       </div>
     </section>
   );

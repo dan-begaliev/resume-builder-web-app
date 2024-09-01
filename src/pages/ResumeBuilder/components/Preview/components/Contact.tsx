@@ -20,22 +20,22 @@ function Contact() {
   const contactDetails: ContactDetail[] = [
     {
       icon: <MobileIcon />,
-      value: resumeData.summary.phone.value,
+      value: `${resumeData.contact.phone.value}`,
       label: "Phone",
     },
     {
       icon: <EnvelopeClosedIcon />,
-      value: resumeData.summary.email.value,
+      value: `${resumeData.contact.phone.value}`,
       label: "Email",
     },
     {
       icon: <SewingPinIcon />,
-      value: resumeData.summary.address.value,
+      value: `${resumeData.contact.phone.value}`,
       label: "Address",
     },
     {
       icon: <LinkedInLogoIcon />,
-      value: resumeData.summary.website.value,
+      value: `${resumeData.contact.phone.value}`,
       label: "Website",
     },
   ];

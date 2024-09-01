@@ -19,16 +19,16 @@ type SidebarLink = {
 
 export const builder_urls: SidebarLink[] = [
   {
-    title: "Contact",
+    title: "Header",
     icon: PersonIcon,
-    url: "/contact",
-    element: () => <BuilderStepGenerator sectionName="contact" />, // Using as a React component
+    url: "/header",
+    element: () => <BuilderStepGenerator sectionName="header" />, // Using as a React component
   },
   {
-    title: "Summary",
+    title: "Contact",
     icon: InfoCircledIcon,
-    url: "/summary",
-    element: () => <BuilderStepGenerator sectionName="summary" />,
+    url: "/contact",
+    element: () => <BuilderStepGenerator sectionName="contact" />,
   },
   {
     title: "Education",

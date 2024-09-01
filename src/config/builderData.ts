@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 // Defining the types for each data block with inputType and value
 
 export type Field = {
@@ -17,14 +18,14 @@ export type Field = {
   options?: string[]; // For select, radio, and checkbox inputs
 };
 
-type SummaryData = {
+type ContactData = {
   email: Field;
   phone: Field;
   address: Field;
   website: Field;
 };
 
-export const summaryData: SummaryData = {
+export const contactData: ContactData = {
   email: { inputType: "email", value: "johndoe@gmail.com", label: "Email" },
   phone: { inputType: "phone", value: "2064461128", label: "Phone Number" },
   address: { inputType: "textarea", value: "San Francisco", label: "Address" },
@@ -41,14 +42,14 @@ export const skillsData: Skills[] = [
   },
 ];
 
-type Contact = {
+type Header = {
   firstname: Field;
   lastname: Field;
   position: Field;
   description: Field;
 };
 
-export const contactData: Contact = {
+export const headerData: Header = {
   firstname: { inputType: "text", value: "JOHN", label: "First Name" },
   lastname: { inputType: "text", value: "DOE", label: "Last Name" },
   position: {
@@ -116,8 +117,8 @@ export const experienceData: Experience[] = [
 ];
 
 export type ResumeData = {
+  header: typeof headerData;
   contact: typeof contactData;
-  summary: typeof summaryData;
   skills: typeof skillsData;
   education: typeof educationData;
   experience: typeof experienceData;

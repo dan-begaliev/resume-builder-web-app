@@ -39,13 +39,12 @@ const ResumePreview = ({
             fontFamily: "Libre Baskerville, sans-serif",
           }}
         >
-          {resumeData.contact.firstname.value}{" "}
-          {resumeData.contact.lastname.value}
+          {resumeData.header.firstname.value} {resumeData.header.lastname.value}
           <div
             style={{ color: "aquamarine", fontFamily: "cursive" }}
             className="text-2xl font-normal italic mt-3"
           >
-            {resumeData.contact.position.value}
+            {resumeData.header.position.value}
           </div>
         </div>
         <div className="divide flex flex-row">
