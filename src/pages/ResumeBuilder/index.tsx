@@ -5,7 +5,7 @@ import {
   ResizableHandle,
 } from "@/components/ui/resizable";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Sidebar from "./components/Sidebar";
 import Preview from "./components/Preview/Preview";
@@ -17,6 +17,7 @@ export default function ResumeBuilder() {
   const editorLayoutSizes = [50, 50];
 
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const mainRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
@@ -58,10 +59,10 @@ export default function ResumeBuilder() {
               <ResizeHandleCustom />
 
               <ResizablePanel defaultSize={editorLayoutSizes[2]} minSize={20}>
-                <Preview />
+                <Preview resumeRef={mainRef} />
               </ResizablePanel>
             </ResizablePanelGroup>
-            <BottomBar />
+            <BottomBar resumeRef={mainRef} />
             <ResizablePanel />
           </ResizablePanel>
         </ResizablePanelGroup>

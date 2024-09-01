@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 
 import ResumeBuilder from "./pages/ResumeBuilder";
 import { builder_urls, resumeBuilderUrl } from "./config/builderUrls";
+import Finalize from "./pages/ResumeBuilder/components/Finalize";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "", // Empty path redirects to the contact page
         element: <Navigate to={resumeBuilderUrl + "/contact"} replace />,
+      },
+      {
+        path: resumeBuilderUrl + "/finalize", // Empty path redirects to the contact page
+        element: <Finalize />,
       },
       ...builder_urls.map((link) => ({
         path: resumeBuilderUrl + link.url,

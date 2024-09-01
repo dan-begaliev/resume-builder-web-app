@@ -8,13 +8,19 @@ import Skills from "./components/Skills";
 import Summary from "./components/Summary";
 import Experience from "./components/Experience";
 import { ScrollArea } from "@/components/ui/scroll-area";
-const ResumePreview: React.FC = () => {
+
+const ResumePreview = ({
+  resumeRef,
+}: {
+  resumeRef: React.RefObject<HTMLDivElement>;
+}) => {
   const resumeData = useAppSelector(
     (state) => state.resumeBuilder
   ) as ResumeData;
   return (
     <ScrollArea className="h-full w-full max-w-full">
       <Card
+        ref={resumeRef}
         className="h-full p-6 w-full text-[clamp(12px,5vw,16px)]"
         style={{
           color: "black",
