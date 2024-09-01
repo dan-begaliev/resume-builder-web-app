@@ -17,16 +17,19 @@ const ResumePreview = ({
   const resumeData = useAppSelector(
     (state) => state.resumeBuilder
   ) as ResumeData;
+
   return (
     <ScrollArea className="h-full w-full max-w-full">
       <Card
         ref={resumeRef}
-        className="h-full p-6 w-full text-[clamp(12px,5vw,16px)]"
+        className="p-3 w-full text-[clamp(12px,5vw,16px)] printable-area"
         style={{
           color: "black",
           backgroundColor: "white",
-          // width: "210mm",
-          // height: "297mm",
+          width: "210mm",
+          minHeight: "297mm",
+          maxHeight: "297mm",
+          overflow: "hidden",
         }}
       >
         <div
@@ -46,7 +49,7 @@ const ResumePreview = ({
           </div>
         </div>
         <div className="divide flex flex-row">
-          <div className="w-1/3 h-dvh flex flex-col items-center bg-[#EEE7E1] p-7">
+          <div className="w-1/3 flex flex-col items-center bg-[#EEE7E1] p-7">
             <div className="">
               <div className="text-l font-bold">
                 <p className="my-3">CONTACT</p>
@@ -61,7 +64,7 @@ const ResumePreview = ({
           <div className="w-2/3 h-dvh p-4">
             <p className="mt-6 text-l font-bold">SUMMARY</p>
             <Summary />
-            <p className="mt-6 mb-3  text-l font-bold">EXPERIENCE</p>
+            <p className="mt-6 mb-3 text-l font-bold">EXPERIENCE</p>
             <Experience />
           </div>
         </div>
