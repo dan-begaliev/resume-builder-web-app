@@ -9,12 +9,12 @@ function Experience() {
     <section>
       {resumeData.experience.map((exp, index) => (
         <div key={index} className="mb-2">
-          <p className="italic font-bold">JOB TITLE{exp.company.value}</p>
+          <p className="italic font-bold">JOB TITLE{exp.position.value}</p>
           <div className="flex italic">
-            <p>Microsoft |{exp.position.value}</p>
-            <p>Los Angeles |{exp.city.value}</p>
-            <p>03/2021 - {exp.startDate.value}</p>
-            <p>06/2024{exp.endDate.value}</p>
+            <p>{exp.company.value}</p>
+            <p>{exp.city.value}</p>
+            <p>{exp.startDate.value}</p>
+            <p>{exp.endDate.value}</p>
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
