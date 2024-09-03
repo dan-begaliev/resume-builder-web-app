@@ -6,7 +6,11 @@ import { RocketIcon } from "@radix-ui/react-icons";
 import { BorderBeam } from "@/components/magicui/border-beam";
 
 import avatar_img from "@/assets/avatars/avatar-1.avif";
+import avatar_img2 from "@/assets/avatars/avatar-2.avif";
+import avatar_img3 from "@/assets/avatars/avatar-3.avif";
+
 import { Review } from "@/components/Reviews";
+import { Cover } from "@/components/ui/cover";
 
 // type HeroProps = {
 //   heading: {
@@ -21,11 +25,11 @@ type AvatarProps = {
 };
 const avatarList: AvatarProps[] = [
   {
-    src: avatar_img,
+    src: avatar_img3,
     alt: "Avatar 1",
   },
   {
-    src: avatar_img,
+    src: avatar_img2,
 
     alt: "Avatar 2",
   },
@@ -63,7 +67,7 @@ export function Hero() {
       <div className="mx-auto flex  shrink-0 flex-col items-center justify-center gap-y-6 px-2 py-4">
         <h1 className="gradient-text max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-1.44px] text-text-primary dark:text-dark-text-primary md:tracking-[-2.16px]">
           Build Your Resume at <br className="hidden md:block" />{" "}
-          <span>warp speed</span>
+          <Cover>warp speed</Cover>
         </h1>
         <h2 className="text-md max-w-2xl text-pretty text-center text-muted-foreground md:text-lg">
           Fueled by AI magic. Yep, another AI thing, we know, we know…

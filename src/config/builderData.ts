@@ -46,7 +46,7 @@ type Header = {
   firstname: Field;
   lastname: Field;
   position: Field;
-  description: Field;
+  summary: Field;
 };
 
 export const headerData: Header = {
@@ -57,7 +57,7 @@ export const headerData: Header = {
     value: "Frontend Developer",
     label: "Position",
   },
-  description: { inputType: "textarea", value: "", label: "Description" },
+  summary: { inputType: "textarea", value: "", label: "Summary" },
 };
 
 type Education = {
@@ -103,14 +103,23 @@ export type Experience = {
 export const experienceData: Experience[] = [
   {
     company: { inputType: "text", value: "", label: "Company" },
-    position: { inputType: "text", value: "", label: "Position" },
-    city: { inputType: "textarea", value: "", label: "City" },
-    startDate: { inputType: "calendar", value: "", label: "Start Date" },
-    endDate: { inputType: "calendar", value: "", label: "End Date" },
-    description: { inputType: "textarea", value: "", label: "Description" },
+    position: {
+      inputType: "text",
+      value: "Frontend Developer",
+      label: "Position",
+    },
+    city: { inputType: "textarea", value: "San Francisco", label: "City" },
+    startDate: { inputType: "calendar", value: "03/2022", label: "Start Date" },
+    endDate: { inputType: "calendar", value: "03/2024", label: "End Date" },
+    description: {
+      inputType: "textarea",
+      value:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus saepe, quia deserunt animi nemo iusto facere! Aspernatur a incidunt accusantium iste, ea saepe id fugit, oditdolorem quidem omnis suscipit.",
+      label: "Description",
+    },
     responsibilities: {
       inputType: "textarea",
-      value: "",
+      value: "don't worry, be happy",
       label: "Responsibilities",
     },
   },

@@ -25,17 +25,17 @@ function Contact() {
     },
     {
       icon: <EnvelopeClosedIcon />,
-      value: `${resumeData.contact.phone.value}`,
+      value: `${resumeData.contact.email.value}`,
       label: "Email",
     },
     {
       icon: <SewingPinIcon />,
-      value: `${resumeData.contact.phone.value}`,
+      value: `${resumeData.contact.address.value}`,
       label: "Address",
     },
     {
       icon: <LinkedInLogoIcon />,
-      value: `${resumeData.contact.phone.value}`,
+      value: `${resumeData.contact.website.value}`,
       label: "Website",
     },
   ];

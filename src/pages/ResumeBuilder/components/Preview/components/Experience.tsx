@@ -9,34 +9,22 @@ function Experience() {
     <section>
       {resumeData.experience.map((exp, index) => (
         <div key={index} className="mb-2">
-          <p className="italic font-bold">JOB TITLE{exp.position.value}</p>
-          <div className="flex italic">
+          <p className="italic font-bold">{exp.position.value}</p>
+          <div className="flex italic gap-2">
             <p>{exp.company.value}</p>
             <p>{exp.city.value}</p>
             <p>{exp.startDate.value}</p>
+            {exp.startDate.value && <span>-</span>}
             <p>{exp.endDate.value}</p>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus saepe, quia deserunt animi nemo iusto facere!
-            Aspernatur a incidunt accusantium iste, ea saepe id fugit, odit
-            dolorem quidem omnis suscipit.
-            {exp.description.value}
-          </p>
-          <ul className="ml-6">
-            <li style={{ listStyleType: "disc" }}>
-              <p>walk dog{exp.responsibilities.value}</p>
-            </li>
-            <li style={{ listStyleType: "disc" }}>
-              <p>walk dog{exp.responsibilities.value}</p>
-            </li>
-            <li style={{ listStyleType: "disc" }}>
-              <p>walk dog{exp.responsibilities.value}</p>
-            </li>
-            <li style={{ listStyleType: "disc" }}>
-              <p>walk dog{exp.responsibilities.value}</p>
-            </li>
-          </ul>
+          <p>{exp.description.value}</p>
+          {exp.responsibilities.value && (
+            <ul className="ml-6">
+              <li style={{ listStyleType: "disc" }}>
+                <p>{exp.responsibilities.value}</p>
+              </li>
+            </ul>
+          )}
         </div>
       ))}
     </section>

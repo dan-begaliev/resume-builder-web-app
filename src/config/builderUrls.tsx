@@ -2,6 +2,7 @@ import {
   BackpackIcon,
   BookmarkIcon,
   InfoCircledIcon,
+  MagicWandIcon,
   MixIcon,
   PersonIcon,
   StarIcon,
@@ -53,5 +54,11 @@ export const builder_urls: SidebarLink[] = [
     icon: BookmarkIcon,
     url: "/finalize",
     element: () => <h1>Finalize</h1>,
+  },
+  {
+    title: "AI Assistant",
+    icon: MagicWandIcon,
+    url: "/aiassistant",
+    element: () => <h1>AI Chat</h1>,
   },
 ];

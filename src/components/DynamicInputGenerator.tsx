@@ -91,14 +91,6 @@ export default function DynamicGenerator({
     );
   };
 
-  const openEditDialog = (index: number) => {
-    setEditIndex(index);
-  };
-
-  const closeEditDialog = () => {
-    setEditIndex(null);
-  };
-
   const handleFieldChange = (index: number | string, value: string) => {
     dispatch(
       updateField({
@@ -119,11 +111,11 @@ export default function DynamicGenerator({
           <div key={index} className="card mb-6 p-4 border rounded">
             <div className="flex justify-between items-center">
               <div>
-                <h3>{`${
+                <h3 className="mb-4">{`${
                   sectionName.charAt(0).toUpperCase() + sectionName.slice(1)
                 }:  ${index + 1}`}</h3>
                 {Object.entries(item).map(([key, field]) => (
-                  <div key={key} className="grid gap-3 mb-4">
+                  <div key={key} className="grid gap-2 mb-4">
                     <Label htmlFor={`${key}-${index}`}>{field.label}</Label>
                     <Input
                       value={field.value as string}
@@ -153,27 +145,6 @@ export default function DynamicGenerator({
         <Button onClick={handleAddItem} className="btn btn-primary mt-4">
           Add {sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}
         </Button>
-        {/* 
-        {editIndex !== null && (
-          <Dialog open={editIndex !== null} onOpenChange={closeEditDialog}>
-            <DialogContent>
-              <DialogTitle>Edit Item</DialogTitle>
-              {Object.entries(sectionData[editIndex]).map(([key, field]) => (
-                <div key={key} className="grid gap-3 mb-4">
-                  <Label htmlFor={`${key}-${editIndex}`}>{field.label}</Label>
-                  <Input
-                    value={field.value as string}
-                    onChange={(e) => handleFieldChange(key, e.target.value)}
-                    id={`${key}-${editIndex}`}
-                    type={field.inputType}
-                    className="w-full"
-                  />
-                </div>
-              ))}
-              <Button onClick={closeEditDialog}>Close</Button>
-            </DialogContent>
-          </Dialog>
-        )} */}
       </div>
     );
   } else {
