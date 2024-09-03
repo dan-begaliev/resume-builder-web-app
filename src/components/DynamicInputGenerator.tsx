@@ -110,12 +110,9 @@ export default function DynamicGenerator({
         {sectionData.map((item, index) => (
           <div key={index} className="card mb-6 p-4 border rounded">
             <div className="flex justify-between items-center">
-              <div>
-                <h3 className="mb-4">{`${
-                  sectionName.charAt(0).toUpperCase() + sectionName.slice(1)
-                }:  ${index + 1}`}</h3>
+              <div className="grid grid-cols-2 gap-6 w-full">
                 {Object.entries(item).map(([key, field]) => (
-                  <div key={key} className="grid gap-2 mb-4">
+                  <div key={key} className="grid gap-3">
                     <Label htmlFor={`${key}-${index}`}>{field.label}</Label>
                     <Input
                       value={field.value as string}
@@ -128,23 +125,26 @@ export default function DynamicGenerator({
                     />
                   </div>
                 ))}
+                <div className='grid gap-3'>
+                <h3 className='text-[14px]'>Delete Experience</h3>
+                  <Button className="w-full"
+                    onClick={() => handleDeleteItem(index)}
+                    variant="destructive"
+                    size={"sm"}
+                  >
+                    <TrashIcon />
+                    </Button>
+                  </div>
               </div>
-              <div>
-                <Button
-                  onClick={() => handleDeleteItem(index)}
-                  variant="destructive"
-                  size={"sm"}
-                >
-                  <TrashIcon />
-                </Button>
-              </div>
+
             </div>
           </div>
         ))}
-
+        <div>
         <Button onClick={handleAddItem} className="btn btn-primary mt-4">
           Add {sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}
-        </Button>
+          </Button>
+        </div>
       </div>
     );
   } else {
